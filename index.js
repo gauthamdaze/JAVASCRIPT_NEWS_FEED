@@ -11,7 +11,7 @@ var loadMore = function() {
             addtToList(res);
         }
     };
-    xhttp.open("GET", 'http://newsapi.org/v2/top-headlines?' +
+    xhttp.open("GET", 'https://newsapi.org/v2/top-headlines?' +
         'sources=bbc-news&' +
         'apiKey=bc1efba457af4251b36161ca5f24d779', true);
     xhttp.send();
