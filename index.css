@@ -62,7 +62,7 @@ form.search input[type=text] {
 	padding: 5px;
 	font-size: 17px;
 	border: 1px solid grey;
-	width: 60%;
+	width: 65%;
 	background: #f1f1f1;
 	margin: 2% 0 2%;
 	outline:#c0c753;
@@ -70,7 +70,7 @@ form.search input[type=text] {
 }
 /* Style the submit button */
 form.search button {
-	width: 10%;
+	width: 6%;
 	height: 30px;
 	background: #c0c753;
 	font-size: 15px;
@@ -93,3 +93,39 @@ form.example::after {
 	margin: 5px 10px auto;
 	font-size: 10px;
 }
+.navbar{
+	position: relative;
+    width: 100%;
+	background: #f3f7bc;
+
+}
+.navbar_ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+
+  }
+  
+  .navbar_ul li {
+	float: left;
+	padding: 5px;
+		margin: 0px;
+		cursor: pointer;
+}
+.navbar_ul li :hover{
+	color:#000;
+	font-weight: bolder;
+}
+
+  .navbar_ul li a {
+    display: block;
+    padding: 3px;
+    text-decoration: none;
+    color: #7d6f6f;
+    font-weight: 300;
+    font-size: 16px;
+    background-color: #f3f7bc;
+    border-radius: 2px;
+  }
+
