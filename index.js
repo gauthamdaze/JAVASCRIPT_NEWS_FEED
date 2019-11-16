@@ -1,17 +1,21 @@
 var feedList = document.querySelector('#feed');
 var searchBar = document.getElementById('searchBar');
 //default search 
-text ='India';
+text = 'everything';
 
 // Data fetch
 var loadMore = function(text) {
     var xhttp;
-    var searchString = text;
+    let searchString = text;
+    let query ='';
+//    if (searchString!=''){
+//         query = 'q=('+searchString+')&'
+//     }
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             let res = JSON.parse(this.responseText);
-            if(searchString != 'india'){
+            if(searchString != 'everything'){
             addtToList(res,true,searchString);
             }
             else{
@@ -20,7 +24,7 @@ var loadMore = function(text) {
         }
     };
     xhttp.open("GET", 'https://newsapi.org/v2/everything?' +
-    'q='+searchString+'&'+
+    'q=('+searchString+')&'+
     'from=2019-11-09&' +
     'sortBy=popularity&' +
     'apiKey=bc1efba457af4251b36161ca5f24d779');
