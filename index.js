@@ -8,9 +8,7 @@ var loadMore = function(text) {
     var xhttp;
     let searchString = text;
     let query ='';
-//    if (searchString!=''){
-//         query = 'q=('+searchString+')&'
-//     }
+
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -54,6 +52,7 @@ searchBar.addEventListener("keyup", function(event) {
 
 var addtToList = function(items,searchmade,searchString) {
   // if search is made remove the exisiting feed and append new feed
+  var fragment = new DocumentFragment();
         if(searchmade){
             var myList = document.getElementById('feed');
             myList.innerHTML = '';
@@ -66,12 +65,14 @@ var addtToList = function(items,searchmade,searchString) {
             img.setAttribute("src", items.articles[i].urlToImage);
             img.setAttribute("width", "70");
             img.setAttribute("height", "auto");
-            headlineLink.setAttribute('href', items.articles[i].title);
-            headlineLink.innerHTML = items.articles[i].title;
+            headlineLink.setAttribute('href', items.articles[i].url);
+            headlineLink.innerHTML = items.articles[i].title;            
             item.appendChild(img);
             item.appendChild(headlineLink);
-            feedList.appendChild(item);
+            fragment.appendChild(item);
+            
         }
+        feedList.appendChild(fragment);
 }
 
 // Detect when scrolled to bottom.
@@ -103,3 +104,10 @@ var polTab = document.querySelector('#politics').addEventListener('click',functi
 window.onload = function() {
     loadMore(text);
   };
+
+  // Auto refresh 
+ setInterval(function(){
+    var myList = document.getElementById('feed');
+    myList.innerHTML = '';
+    loadMore(text);
+ },30000)
